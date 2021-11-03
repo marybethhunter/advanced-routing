@@ -3,6 +3,7 @@
 ## Topics
 - [Get Started](#get-started)
 - [Starting the Project](#starting-the-project)
+- [Slide Deck](https://docs.google.com/presentation/d/10Pm6sXV24lqsCkVvZ9UbZKEjQONXGJaVxEVKUw4Y9bM/edit#slide=id.p)
 ___
 
 ## Get Started
