@@ -1,17 +1,21 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Edit from '../views/Edit';
-import Home from '../views/Home';
-import Create from '../views/Create';
+import PropTypes from 'prop-types';
+import AdminRoutes from './AdminRoutes';
+import UnauthenticatedRoutes from './UnauthenticatedRoutes';
 
-export default function Routes() {
+export default function Routes({ user }) {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/create" component={Create} />
-        <Route exact path="/edit/:key" component={Edit} />
-      </Switch>
-    </div>
+    <>
+      {user?.isAdmin && <AdminRoutes user={user} />}
+      <UnauthenticatedRoutes user={user} />
+    </>
   );
 }
+
+Routes.propTypes = {
+  user: PropTypes.shape(PropTypes.obj),
+};
+
+Routes.defaultProps = {
+  user: null,
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { signOutUser } from '../api/auth';
 
 function Navigation() {
   return (
@@ -32,7 +33,24 @@ function Navigation() {
                   Create
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to="/about">
+                  About
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to="/contact-us">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={signOutUser}
+            >
+              Sign Out!
+            </button>
           </div>
         </div>
       </nav>

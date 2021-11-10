@@ -33,4 +33,13 @@ const getSingleCard = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { createCard, getCards, getSingleCard };
+const deleteCard = (firebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .delete(`${BASEURL}/cards/${firebaseKey}.json`)
+    .then(() => resolve)
+    .catch(reject);
+});
+
+export {
+  createCard, getCards, getSingleCard, deleteCard,
+};
