@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { signOutUser } from '../api/auth';
 
-function Navigation() {
+function Navigation({ user }) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,18 +45,28 @@ function Navigation() {
                 </Link>
               </li>
             </ul>
-            <button
-              type="button"
-              className="btn btn-danger"
-              onClick={signOutUser}
-            >
-              Sign Out!
-            </button>
+            {user ? (
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={signOutUser}
+              >
+                Sign Out!
+              </button>
+            ) : null}
           </div>
         </div>
       </nav>
     </div>
   );
 }
+
+Navigation.propTypes = {
+  user: PropTypes.shape(PropTypes.obj),
+};
+
+Navigation.defaultProps = {
+  user: null,
+};
 
 export default Navigation;
